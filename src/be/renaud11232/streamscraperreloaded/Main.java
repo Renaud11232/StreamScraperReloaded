@@ -10,9 +10,9 @@ public class Main {
     public static void main(String[] args) throws Exception {
         System.out.println("IceCast");
         Scraper sc = new IceCastScraper();
-        List<Stream> streams = sc.scrape(new URI("http://109.123.110.250:8000/"));
+        //List<Stream> streams = sc.scrape(new URI("http://109.123.110.250:8000/"));
         //List<Stream> streams = sc.scrape(new URI("http://stream.breddmedia.hu:8060/"));
-        //List<Stream> streams = sc.scrape(new URI("http://192.168.1.210:8000/"));
+        List<Stream> streams = sc.scrape(new URI("http://192.168.1.210:8000/"));
         for(Stream s : streams){
             System.out.println(s);
         }

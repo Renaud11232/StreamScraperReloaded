@@ -21,30 +21,6 @@ public class IceCastScraper implements Scraper {
         jsonParser = new IceCastJsonParser();
     }
 
-    public Fetcher getFetcher() {
-        return fetcher;
-    }
-
-    public void setFetcher(Fetcher fetcher) {
-        this.fetcher = fetcher;
-    }
-
-    public Parser getParser() {
-        return parser;
-    }
-
-    public void setParser(Parser parser) {
-        this.parser = parser;
-    }
-
-    public IceCastJsonParser getJsonParser() {
-        return jsonParser;
-    }
-
-    public void setJsonParser(IceCastJsonParser jsonParser) {
-        this.jsonParser = jsonParser;
-    }
-
     @Override
     public List<Stream> scrape(URI uri) throws ScrapeException {
         try{

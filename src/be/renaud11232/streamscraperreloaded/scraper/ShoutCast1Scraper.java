@@ -23,30 +23,6 @@ public class ShoutCast1Scraper implements Scraper {
         feedParser = new ShoutCast1FeedParser();
     }
 
-    public HttpFetcher getFetcher() {
-        return fetcher;
-    }
-
-    public void setFetcher(HttpFetcher fetcher) {
-        this.fetcher = fetcher;
-    }
-
-    public ShoutCast1StatusParser getStatusParser() {
-        return statusParser;
-    }
-
-    public void setStatusParser(ShoutCast1StatusParser statusParser) {
-        this.statusParser = statusParser;
-    }
-
-    public ShoutCast1FeedParser getFeedParser() {
-        return feedParser;
-    }
-
-    public void setFeedParser(ShoutCast1FeedParser feedParser) {
-        this.feedParser = feedParser;
-    }
-
     @Override
     public List<Stream> scrape(URI uri) throws ScrapeException {
         try{

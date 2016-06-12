@@ -6,5 +6,5 @@ import java.net.URI;
 import java.util.List;
 
 public interface Parser {
-    List<Stream> parse(URI uri, Document src) throws ParseException;
+    public List<Stream> parse(URI uri, Document src) throws ParseException;
 }
