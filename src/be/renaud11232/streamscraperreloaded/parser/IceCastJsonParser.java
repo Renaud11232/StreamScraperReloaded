@@ -27,7 +27,7 @@ public class IceCastJsonParser implements Parser {
                 Stream stream = new Stream();
                 stream.setTitle(sourceObject.get("server_name") == null ? null : sourceObject.get("server_name").getAsString());
                 stream.setDescription(sourceObject.get("server_description") == null ? null : sourceObject.get("server_description").getAsString());
-                stream.setUri(sourceObject.get("listenurl") == null ? null : new URI(sourceObject.get("listenurl").getAsString()));
+                stream.setUri(sourceObject.get("listenurl") == null ? null : uri.resolve(sourceObject.get("listenurl").getAsString().substring(sourceObject.get("listenurl").getAsString().lastIndexOf("/"))));
                 stream.setCurrentListenerCount(sourceObject.get("listeners") == null ? -1 : sourceObject.get("listeners").getAsInt());
                 stream.setPeakListenerCount(sourceObject.get("listener_peak") == null ? -1 : sourceObject.get("listener_peak").getAsInt());
                 stream.setBitRate(sourceObject.get("bitrate") == null ? null : sourceObject.get("bitrate").getAsInt() + "");
