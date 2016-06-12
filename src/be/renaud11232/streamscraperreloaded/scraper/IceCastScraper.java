@@ -8,12 +8,12 @@ import org.jsoup.nodes.Document;
 import java.net.URI;
 import java.util.List;
 
-public class IceCastScraper implements Scraper{
+public class IceCastScraper implements Scraper {
 
     private Fetcher fetcher;
     private Parser parser;
 
-    public IceCastScraper(){
+    public IceCastScraper() {
         fetcher = new HttpFetcher();
         parser = new IceCastParser();
     }

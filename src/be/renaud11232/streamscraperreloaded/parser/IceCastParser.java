@@ -2,9 +2,7 @@ package be.renaud11232.streamscraperreloaded.parser;
 
 import be.renaud11232.streamscraperreloaded.ParseException;
 import be.renaud11232.streamscraperreloaded.Parser;
-import be.renaud11232.streamscraperreloaded.Scraper;
 import be.renaud11232.streamscraperreloaded.Stream;
-import be.renaud11232.streamscraperreloaded.scraper.IceCastScraper;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -15,32 +13,31 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class IceCastParser implements Parser{
+public class IceCastParser implements Parser {
     @Override
     public List<Stream> parse(URI uri, Document src) throws ParseException {
         List<Stream> streams = new LinkedList<>();
         parseSource(uri, src, streams);
         return streams;
-        //throw new UnsupportedOperationException("Not done yet");
     }
 
-    private void parseSource(URI uri, Document src, List<Stream> streams){
+    private void parseSource(URI uri, Document src, List<Stream> streams) {
         Elements containers = src.select("div.newscontent");
-        for(Element container : containers){
+        for (Element container : containers) {
             parseContainer(uri, container, streams);
         }
     }
 
-    private void parseContainer(URI uri, Element container, List<Stream> streams){
+    private void parseContainer(URI uri, Element container, List<Stream> streams) {
         Stream stream = new Stream();
         parseMountPoint(uri, container, stream);
         parseAttributes(container, stream);
         streams.add(stream);
     }
 
-    private void parseMountPoint(URI uri, Element container, Stream stream){
+    private void parseMountPoint(URI uri, Element container, Stream stream) {
         String mountPoint = parseMountPoint231(container);
-        if(mountPoint == null){
+        if (mountPoint == null) {
             mountPoint = parseMountPoint232(container);
         }
         if (mountPoint != null) {
@@ -48,72 +45,72 @@ public class IceCastParser implements Parser{
         }
     }
 
-    private String parseMountPoint231(Element container){
+    private String parseMountPoint231(Element container) {
         Element h3 = container.select(":root > h3").first();
-        if(h3 == null){
+        if (h3 == null) {
             return null;
         }
         Element a = h3.select(":root > a").first();
-        if(a == null){
+        if (a == null) {
             return null;
         }
         String value = a.attr(":root > href");
-        if(value == null || value.equals("")){
+        if (value == null || value.equals("")) {
             return null;
         }
         Matcher m = Pattern.compile("^(.*)\\.m3u$").matcher(value);
-        if(!m.matches()){
+        if (!m.matches()) {
             return null;
         }
         return m.group(1);
     }
 
-    private String parseMountPoint232(Element container){
+    private String parseMountPoint232(Element container) {
         Element header = container.select("div.streamheader").first();
-        if(header == null){
+        if (header == null) {
             return null;
         }
         Element table = header.select(":root > table").first();
-        if(table == null){
+        if (table == null) {
             return null;
         }
         Element tr = table.select(":root > tbody > tr").first();
-        if(tr == null){
+        if (tr == null) {
             return null;
         }
         Element td = tr.select(":root > td").first();
-        if(td == null){
+        if (td == null) {
             return null;
         }
         Element h3 = td.select(":root > h3").first();
-        if(h3 == null){
+        if (h3 == null) {
             return null;
         }
         String value = h3.text();
-        if(value == null || value.equals("")){
+        if (value == null || value.equals("")) {
             return null;
         }
         Matcher m = Pattern.compile("^Mount Point (.*)$").matcher(value);
-        if(!m.matches()){
+        if (!m.matches()) {
             return null;
         }
         return m.group(1);
     }
 
-    private void parseAttributes(Element container, Stream stream){
+    private void parseAttributes(Element container, Stream stream) {
         Element table = container.select(":root > table").first();
-        if(table == null){
+        if (table == null) {
             return;
         }
         Elements rows = table.select(":root > tbody > tr");
-        for(Element row : rows){
+        for (Element row : rows) {
             Elements cols = row.select(":root > td");
-            if(cols.size() != 2){
+            if (cols.size() != 2) {
                 continue;
             }
             String name = cols.get(0).text();
             String value = cols.get(1).text();
-            switch(name.toLowerCase()){
+            switch (name.toLowerCase()) {
                 case "stream title:":
                     stream.setTitle(value);
                     break;
@@ -129,12 +126,14 @@ public class IceCastParser implements Parser{
                 case "current listeners:":
                     try {
                         stream.setCurrentListenerCount(Integer.parseInt(value));
-                    }catch (NumberFormatException ignored){}
+                    } catch (NumberFormatException ignored) {
+                    }
                     break;
                 case "peak listeners:":
                     try {
                         stream.setPeakListenerCount(Integer.parseInt(value));
-                    }catch (NumberFormatException ignored){}
+                    } catch (NumberFormatException ignored) {
+                    }
                     break;
                 case "stream genre:":
                     stream.setGenre(value);

@@ -8,9 +8,10 @@ import org.jsoup.nodes.Document;
 import java.io.IOException;
 import java.net.URI;
 
-public class HttpFetcher implements Fetcher{
+public class HttpFetcher implements Fetcher {
 
-    public HttpFetcher(){}
+    public HttpFetcher() {
+    }
 
     @Override
     public Document fetch(URI uri) throws FetchException {
