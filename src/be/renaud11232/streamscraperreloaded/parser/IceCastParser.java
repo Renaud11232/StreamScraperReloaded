@@ -46,15 +46,11 @@ public class IceCastParser implements Parser {
     }
 
     private String parseMountPoint231(Element container) {
-        Element h3 = container.select(":root > h3").first();
-        if (h3 == null) {
-            return null;
-        }
-        Element a = h3.select(":root > a").first();
+        Element a = container.select(":root > h3:first-of-type > a").first();
         if (a == null) {
             return null;
         }
-        String value = a.attr(":root > href");
+        String value = a.attr("href");
         if (value == null || value.equals("")) {
             return null;
         }
@@ -66,23 +62,7 @@ public class IceCastParser implements Parser {
     }
 
     private String parseMountPoint232(Element container) {
-        Element header = container.select("div.streamheader").first();
-        if (header == null) {
-            return null;
-        }
-        Element table = header.select(":root > table").first();
-        if (table == null) {
-            return null;
-        }
-        Element tr = table.select(":root > tbody > tr").first();
-        if (tr == null) {
-            return null;
-        }
-        Element td = tr.select(":root > td").first();
-        if (td == null) {
-            return null;
-        }
-        Element h3 = td.select(":root > h3").first();
+        Element h3 = container.select(":root > div.streamheader:first-of-type > table:first-of-type > tbody:first-of-type > tr:first-of-type > td:first-of-type > h3").first();
         if (h3 == null) {
             return null;
         }
@@ -98,11 +78,10 @@ public class IceCastParser implements Parser {
     }
 
     private void parseAttributes(Element container, Stream stream) {
-        Element table = container.select(":root > table").first();
-        if (table == null) {
+        Elements rows = container.select(":root > table:first-of-type > tbody > tr");
+        if (rows == null) {
             return;
         }
-        Elements rows = table.select(":root > tbody > tr");
         for (Element row : rows) {
             Elements cols = row.select(":root > td");
             if (cols.size() != 2) {
