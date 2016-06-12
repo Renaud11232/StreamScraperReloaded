@@ -50,14 +50,14 @@ public class ShoutCast1Scraper implements Scraper {
     @Override
     public List<Stream> scrape(URI uri) throws ScrapeException {
         try{
-            Document status = fetcher.fetch(uri.resolve("/"));
             Document feed = fetcher.fetch(uri.resolve("/7.html"));
+            Document status = fetcher.fetch(uri.resolve("/"));
             List<Stream> feedStreams = feedParser.parse(uri, feed);
             List<Stream> statusStreams = statusParser.parse(uri, status);
             if(statusStreams.size() == 1 && feedStreams.size() == 1){
-                statusStreams.get(0).merge(feedStreams.get(0));
+                feedStreams.get(0).merge(statusStreams.get(0));
             }
-            return statusStreams;
+            return feedStreams;
         }catch(Exception e){
             throw new ScrapeException(e);
         }

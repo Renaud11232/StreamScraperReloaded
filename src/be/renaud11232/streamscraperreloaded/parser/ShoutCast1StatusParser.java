@@ -16,14 +16,12 @@ public class ShoutCast1StatusParser implements Parser{
     public List<Stream> parse(URI uri, Document src) throws ParseException {
         try {
             return parseSource(uri, src);
-        }catch (ParseException e){
-            throw e;
         } catch (Exception e){
             throw new ParseException(e);
         }
     }
 
-    private List<Stream> parseSource(URI uri, Document src) throws ParseException {
+    private List<Stream> parseSource(URI uri, Document src) {
         Stream stream = new Stream();
         stream.setUri(uri.resolve("/"));
         Elements tables = src.select("table[align=center]");
@@ -33,7 +31,7 @@ public class ShoutCast1StatusParser implements Parser{
             }
             stream.clear();
         }
-        throw new ParseException("Could not parse the status page");
+        return Collections.emptyList();
     }
 
     private boolean parseTable(Element table, Stream stream){

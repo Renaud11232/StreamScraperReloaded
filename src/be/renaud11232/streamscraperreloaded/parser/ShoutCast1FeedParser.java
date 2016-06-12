@@ -36,16 +36,12 @@ public class ShoutCast1FeedParser implements Parser {
         // attrs[6] : song title
         Stream stream = new Stream();
         stream.setUri(uri.resolve("/"));
-        try {
-            stream.setCurrentListenerCount(Integer.parseInt(attributes[0]));
-            if (Integer.parseInt(attributes[1]) == 0) {
-                throw new ParseException("Server is down");
-            }
-            stream.setPeakListenerCount(Integer.parseInt(attributes[2]));
-            stream.setMaxListenerCount(Integer.parseInt(attributes[3]));
-        } catch (NumberFormatException e) {
-            throw new ParseException(e);
+        stream.setCurrentListenerCount(Integer.parseInt(attributes[0]));
+        if (Integer.parseInt(attributes[1]) == 0) {
+            throw new ParseException("Server is down");
         }
+        stream.setPeakListenerCount(Integer.parseInt(attributes[2]));
+        stream.setMaxListenerCount(Integer.parseInt(attributes[3]));
         stream.setBitRate(attributes[5]);
         stream.setCurrentSong(attributes[6]);
         return Collections.singletonList(stream);

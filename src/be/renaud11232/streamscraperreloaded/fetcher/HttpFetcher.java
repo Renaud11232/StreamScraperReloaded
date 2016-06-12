@@ -20,6 +20,7 @@ public class HttpFetcher implements Fetcher {
                     .ignoreHttpErrors(false)
                     .userAgent("Mozilla/5.0 (compatible; StreamScraperReloaded/1.0; +https://gitlab.com/Renaud11232/StreamScraperReloaded)")
                     .timeout(10000)
+                    .ignoreContentType(true)
                     .get();
         } catch (IOException e) {
             throw new FetchException(e);
