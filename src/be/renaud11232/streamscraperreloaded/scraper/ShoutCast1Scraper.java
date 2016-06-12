@@ -52,8 +52,8 @@ public class ShoutCast1Scraper implements Scraper {
         try{
             Document status = fetcher.fetch(uri.resolve("/"));
             Document feed = fetcher.fetch(uri.resolve("/7.html"));
-            List<Stream> statusStreams = statusParser.parse(uri, status);
             List<Stream> feedStreams = feedParser.parse(uri, feed);
+            List<Stream> statusStreams = statusParser.parse(uri, status);
             if(statusStreams.size() == 1 && feedStreams.size() == 1){
                 statusStreams.get(0).merge(feedStreams.get(0));
             }

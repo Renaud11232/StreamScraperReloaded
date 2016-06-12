@@ -89,45 +89,45 @@ public class IceCastParser implements Parser {
         Elements rows = container.select(":root > table:first-of-type > tbody > tr");
         for (Element row : rows) {
             Elements cols = row.select(":root > td");
-            if (cols.size() != 2) {
-                continue;
+            if (cols.size() == 2) {
+                String name = cols.get(0).text();
+                String value = cols.get(1).text();
+                switch (name.toLowerCase()) {
+                    case "stream title:":
+                        stream.setTitle(value);
+                        break;
+                    case "stream description:":
+                        stream.setDescription(value);
+                        break;
+                    case "content type:":
+                        stream.setContentType(value);
+                        break;
+                    case "bitrate:":
+                        stream.setBitRate(value);
+                        break;
+                    case "current listeners:":
+                        try {
+                            stream.setCurrentListenerCount(Integer.parseInt(value));
+                        } catch (NumberFormatException e) {
+                            throw new ParseException(e);
+                        }
+                        break;
+                    case "peak listeners:":
+                        try {
+                            stream.setPeakListenerCount(Integer.parseInt(value));
+                        } catch (NumberFormatException e) {
+                            throw new ParseException(e);
+                        }
+                        break;
+                    case "stream genre:":
+                        stream.setGenre(value);
+                        break;
+                    case "current song:":
+                        stream.setCurrentSong(value);
+                        break;
+                }
             }
-            String name = cols.get(0).text();
-            String value = cols.get(1).text();
-            switch (name.toLowerCase()) {
-                case "stream title:":
-                    stream.setTitle(value);
-                    break;
-                case "stream description:":
-                    stream.setDescription(value);
-                    break;
-                case "content type:":
-                    stream.setContentType(value);
-                    break;
-                case "bitrate:":
-                    stream.setBitRate(value);
-                    break;
-                case "current listeners:":
-                    try {
-                        stream.setCurrentListenerCount(Integer.parseInt(value));
-                    } catch (NumberFormatException e) {
-                        throw new ParseException(e);
-                    }
-                    break;
-                case "peak listeners:":
-                    try {
-                        stream.setPeakListenerCount(Integer.parseInt(value));
-                    } catch (NumberFormatException e) {
-                        throw new ParseException(e);
-                    }
-                    break;
-                case "stream genre:":
-                    stream.setGenre(value);
-                    break;
-                case "current song:":
-                    stream.setCurrentSong(value);
-                    break;
-            }
+
         }
     }
 }
