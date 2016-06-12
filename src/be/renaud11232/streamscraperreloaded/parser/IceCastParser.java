@@ -16,9 +16,13 @@ import java.util.regex.Pattern;
 public class IceCastParser implements Parser {
     @Override
     public List<Stream> parse(URI uri, Document src) throws ParseException {
-        List<Stream> streams = new LinkedList<>();
-        parseSource(uri, src, streams);
-        return streams;
+        try {
+            List<Stream> streams = new LinkedList<>();
+            parseSource(uri, src, streams);
+            return streams;
+        }catch(Exception e){
+            throw new ParseException(e);
+        }
     }
 
     private void parseSource(URI uri, Document src, List<Stream> streams) {
