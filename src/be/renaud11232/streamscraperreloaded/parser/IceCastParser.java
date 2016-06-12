@@ -20,32 +20,36 @@ public class IceCastParser implements Parser {
             List<Stream> streams = new LinkedList<>();
             parseSource(uri, src, streams);
             return streams;
-        }catch(Exception e){
+        }catch (ParseException e){
+            throw e;
+        }catch (Exception e){
             throw new ParseException(e);
         }
     }
 
-    private void parseSource(URI uri, Document src, List<Stream> streams) {
+    private void parseSource(URI uri, Document src, List<Stream> streams) throws ParseException {
         Elements containers = src.select("div.newscontent");
         for (Element container : containers) {
             parseContainer(uri, container, streams);
         }
     }
 
-    private void parseContainer(URI uri, Element container, List<Stream> streams) {
+    private void parseContainer(URI uri, Element container, List<Stream> streams) throws ParseException {
         Stream stream = new Stream();
         parseMountPoint(uri, container, stream);
         parseAttributes(container, stream);
         streams.add(stream);
     }
 
-    private void parseMountPoint(URI uri, Element container, Stream stream) {
+    private void parseMountPoint(URI uri, Element container, Stream stream) throws ParseException {
         String mountPoint = parseMountPoint231(container);
         if (mountPoint == null) {
             mountPoint = parseMountPoint232(container);
         }
         if (mountPoint != null) {
             stream.setUri(uri.resolve(mountPoint));
+        } else {
+            throw new ParseException("Error while parsing mount point, no valid mount point were found");
         }
     }
 
@@ -81,11 +85,8 @@ public class IceCastParser implements Parser {
         return m.group(1);
     }
 
-    private void parseAttributes(Element container, Stream stream) {
+    private void parseAttributes(Element container, Stream stream) throws ParseException {
         Elements rows = container.select(":root > table:first-of-type > tbody > tr");
-        if (rows == null) {
-            return;
-        }
         for (Element row : rows) {
             Elements cols = row.select(":root > td");
             if (cols.size() != 2) {
@@ -109,13 +110,15 @@ public class IceCastParser implements Parser {
                 case "current listeners:":
                     try {
                         stream.setCurrentListenerCount(Integer.parseInt(value));
-                    } catch (NumberFormatException ignored) {
+                    } catch (NumberFormatException e) {
+                        throw new ParseException(e);
                     }
                     break;
                 case "peak listeners:":
                     try {
                         stream.setPeakListenerCount(Integer.parseInt(value));
-                    } catch (NumberFormatException ignored) {
+                    } catch (NumberFormatException e) {
+                        throw new ParseException(e);
                     }
                     break;
                 case "stream genre:":
