@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class IceCastParser implements Parser {
+public class IceCastStatusParser implements Parser {
     @Override
     public List<Stream> parse(URI uri, Document src) throws ParseException {
         try {
