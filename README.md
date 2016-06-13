@@ -31,6 +31,10 @@ public class Harvester {
 
 ### *API Documentation*
   * [JavaDoc](http://doc.renaud11232.tk/StreamScraperReloaded/)
+
+### *Download*
+[Click here](http://build.renaud11232.tk/StreamScraperReloaded/)
+You can choose which version you want and if you want it with build in dependencies or not
   
 ### *License*
 
