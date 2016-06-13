@@ -19,18 +19,27 @@ import org.jsoup.nodes.Document;
 import java.net.URI;
 import java.util.List;
 
+/**
+ * Class used to collect data from an IceCast server
+ */
 public class IceCastScraper implements Scraper {
 
     private Fetcher fetcher;
     private Parser parser;
     private IceCastJsonParser jsonParser;
 
+    /**
+     * Constructs a new {@link IceCastScraper}
+     */
     public IceCastScraper() {
         fetcher = new HttpFetcher();
         parser = new IceCastStatusParser();
         jsonParser = new IceCastJsonParser();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Stream> scrape(URI uri) throws ScrapeException {
         try {

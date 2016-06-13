@@ -21,7 +21,13 @@ import java.net.URI;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Class used to parse the ShoutCast 1 status page
+ */
 public class ShoutCast1StatusParser implements Parser {
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Stream> parse(URI uri, Document src) throws ParseException {
         try {

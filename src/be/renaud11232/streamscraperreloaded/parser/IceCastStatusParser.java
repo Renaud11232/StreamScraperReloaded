@@ -23,7 +23,14 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Class used to parse the IceCast server status page into streams
+ */
 public class IceCastStatusParser implements Parser {
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Stream> parse(URI uri, Document src) throws ParseException {
         try {

@@ -24,16 +24,25 @@ import java.net.URI;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Class used to collect data from a ShoutCast 2 server
+ */
 public class ShoutCast2Scraper implements Scraper {
 
     private HttpFetcher fetcher;
     private ShoutCast2StatusParser parser;
 
+    /**
+     * Constructs a new {@link ShoutCast2Scraper}
+     */
     public ShoutCast2Scraper() {
         fetcher = new HttpFetcher();
         parser = new ShoutCast2StatusParser();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Stream> scrape(URI uri) throws ScrapeException {
         try {

@@ -21,18 +21,27 @@ import org.jsoup.nodes.Document;
 import java.net.URI;
 import java.util.List;
 
+/**
+ * Class used to collect data from a ShoutCast 1 server
+ */
 public class ShoutCast1Scraper implements Scraper {
 
     private HttpFetcher fetcher;
     private ShoutCast1StatusParser statusParser;
     private ShoutCast1FeedParser feedParser;
 
+    /**
+     * Constructs a new {@link ShoutCast1Scraper}
+     */
     public ShoutCast1Scraper() {
         fetcher = new HttpFetcher();
         statusParser = new ShoutCast1StatusParser();
         feedParser = new ShoutCast1FeedParser();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Stream> scrape(URI uri) throws ScrapeException {
         try {
