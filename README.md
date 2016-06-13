@@ -31,7 +31,7 @@ public class Harvester {
   * Will come later
   
 *License*
-StreamScraperReloaded is released under the [MIT](https://opensource.org/licenses/MIT)
+StreamScraperReloaded is released under the [MIT](https://opensource.org/licenses/MIT) license
 ```
 Copyright (c) 2016 R. Gaspard
 
