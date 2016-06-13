@@ -30,7 +30,7 @@ public class Harvester {
 ```
 
 ### *API Documentation*
-  * Will come later
+  * [JavaDoc](http://doc.renaud11232.tk/StreamScraperReloaded/)
   
 ### *License*
 
