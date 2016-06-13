@@ -4,8 +4,10 @@
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/jsoup-1.9.2.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/jsoup-1.9.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jsoup-1.9.2.jar!/" />
     </CLASSES>
     <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/jsoup-1.9.2-javadoc.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/jsoup-1.9.2-javadoc.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/jsoup-1.9.2-javadoc.jar!/" />
     </JAVADOC>
