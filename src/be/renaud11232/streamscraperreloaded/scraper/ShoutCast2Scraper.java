@@ -5,7 +5,7 @@ import be.renaud11232.streamscraperreloaded.ScrapeException;
 import be.renaud11232.streamscraperreloaded.Scraper;
 import be.renaud11232.streamscraperreloaded.Stream;
 import be.renaud11232.streamscraperreloaded.fetcher.HttpFetcher;
-import be.renaud11232.streamscraperreloaded.parser.IceCast2StatusParser;
+import be.renaud11232.streamscraperreloaded.parser.ShoutCast2StatusParser;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -17,11 +17,11 @@ import java.util.List;
 public class ShoutCast2Scraper implements Scraper{
 
     private HttpFetcher fetcher;
-    private IceCast2StatusParser parser;
+    private ShoutCast2StatusParser parser;
 
     public ShoutCast2Scraper(){
         fetcher = new HttpFetcher();
-        parser = new IceCast2StatusParser();
+        parser = new ShoutCast2StatusParser();
     }
 
     @Override

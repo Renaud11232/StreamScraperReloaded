@@ -9,7 +9,7 @@ import java.net.URI;
 import java.util.Collections;
 import java.util.List;
 
-public class IceCast2StatusParser implements Parser{
+public class ShoutCast2StatusParser implements Parser{
     @Override
     public List<Stream> parse(URI uri, Document src) throws ParseException {
         try {
