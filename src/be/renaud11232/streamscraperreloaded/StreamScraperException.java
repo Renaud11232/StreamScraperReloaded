@@ -10,20 +10,41 @@
 
 package be.renaud11232.streamscraperreloaded;
 
-
+/**
+ * Defines an exception thrown while using StreamScraperReloaded
+ */
 public class StreamScraperException extends Exception {
+    /**
+     * Constructs a new {@link StreamScraperException}
+     */
     public StreamScraperException() {
         super();
     }
 
+    /**
+     * Constructs a new {@link StreamScraperException} with a given message
+     *
+     * @param message the message
+     */
     public StreamScraperException(String message) {
         super(message);
     }
 
+    /**
+     * Constructs a new {@link StreamScraperException} with a given message and cause
+     *
+     * @param message the message
+     * @param  cause the cause
+     */
     public StreamScraperException(String message, Throwable cause) {
         super(message, cause);
     }
 
+    /**
+     * Constructs a new {@link StreamScraperException} with a given case
+     *
+     * @param cause the cause
+     */
     public StreamScraperException(Throwable cause) {
         super(cause);
     }

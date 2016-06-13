@@ -10,19 +10,41 @@
 
 package be.renaud11232.streamscraperreloaded;
 
+/**
+ * A {@link ParseException} is thrown when something unexpected happened when parsing
+ */
 public class ParseException extends StreamScraperException {
+    /**
+     * Constructs a new {@link ParseException}
+     */
     public ParseException() {
         super();
     }
 
+    /**
+     * Constructs a new {@link ParseException} with a given message
+     *
+     * @param message the message
+     */
     public ParseException(String message) {
         super(message);
     }
 
+    /**
+     * Constructs a new {@link ParseException} with a given message and cause
+     *
+     * @param message the message
+     * @param cause the cause
+     */
     public ParseException(String message, Throwable cause) {
         super(message, cause);
     }
 
+    /**
+     * Constructs a new {@link ParseException} with a given cause
+     *
+     * @param cause the cause
+     */
     public ParseException(Throwable cause) {
         super(cause);
     }

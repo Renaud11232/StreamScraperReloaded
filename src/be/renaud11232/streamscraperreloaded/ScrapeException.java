@@ -10,20 +10,42 @@
 
 package be.renaud11232.streamscraperreloaded;
 
+/**
+ * A {@link ScrapeException} is thrown when something unexpected happened when scraping
+ */
 public class ScrapeException extends StreamScraperException {
 
+    /**
+     * Constructs a new {@link ScrapeException}
+     */
     public ScrapeException() {
         super();
     }
 
+    /**
+     * Constructs a new {@link ScrapeException} with a given message
+     *
+     * @param message the message
+     */
     public ScrapeException(String message) {
         super(message);
     }
 
+    /**
+     * Constructs a new {@link ScrapeException} with a given message and cause
+     *
+     * @param message the message
+     * @param cause   the cause
+     */
     public ScrapeException(String message, Throwable cause) {
         super(message, cause);
     }
 
+    /**
+     * Constructs a new {@link ScrapeException} with a given cause
+     *
+     * @param cause the cause
+     */
     public ScrapeException(Throwable cause) {
         super(cause);
     }

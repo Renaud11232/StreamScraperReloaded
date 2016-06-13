@@ -15,6 +15,16 @@ import org.jsoup.nodes.Document;
 import java.net.URI;
 import java.util.List;
 
+/**
+ * Interface defining all methods used to parse a document
+ */
 public interface Parser {
+    /**
+     * Parses the given {@link Document} located at a given {@link URI} into Streams
+     * @param uri the {@link URI} the location
+     * @param src the {@link Document}
+     * @return a {@link List} containing all parsed Streams
+     * @throws ParseException if the {@link Document} could not be parsed
+     */
     public List<Stream> parse(URI uri, Document src) throws ParseException;
 }

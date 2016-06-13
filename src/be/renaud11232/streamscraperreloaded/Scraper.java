@@ -14,6 +14,15 @@ package be.renaud11232.streamscraperreloaded;
 import java.net.URI;
 import java.util.List;
 
+/**
+ * Interface defining all methods used to scrape a stream
+ */
 public interface Scraper {
+    /**
+     * Scrapes a stream located at a given {@link URI}
+     * @param uri the {@link URI}
+     * @return a list containing all found streams a the given {@link URI}
+     * @throws ScrapeException if the given {@link URI} could not be scraped
+     */
     public List<Stream> scrape(URI uri) throws ScrapeException;
 }

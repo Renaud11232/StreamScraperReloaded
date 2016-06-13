@@ -8,22 +8,7 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package be.renaud11232.streamscraperreloaded;
-
-import org.jsoup.nodes.Document;
-
-import java.net.URI;
-
 /**
- * Interface defining all methods used to fetch a {@link Document}
+ * Provides simple classes and interfaces to harvest stream informations
  */
-public interface Fetcher {
-    /**
-     * Fetches a {@link Document} based on its {@link URI}
-     *
-     * @param uri the {@link Document}'s {@link URI} to fetch
-     * @return the fetched {@link Document}
-     * @throws FetchException if the asked {@link Document} could not be reached and fetched
-     */
-    public Document fetch(URI uri) throws FetchException;
-}
+package be.renaud11232.streamscraperreloaded;

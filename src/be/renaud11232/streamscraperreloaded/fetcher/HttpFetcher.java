@@ -18,11 +18,20 @@ import org.jsoup.nodes.Document;
 import java.io.IOException;
 import java.net.URI;
 
+/**
+ * Class used to fetch a distant document
+ */
 public class HttpFetcher implements Fetcher {
 
+    /**
+     * Constructs a new {@link HttpFetcher}
+     */
     public HttpFetcher() {
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Document fetch(URI uri) throws FetchException {
         try {

@@ -14,6 +14,9 @@ package be.renaud11232.streamscraperreloaded;
 import java.io.Serializable;
 import java.net.URI;
 
+/**
+ * Class that represents a {@link Stream} with its metadata
+ */
 public class Stream implements Serializable {
 
     private String title;
@@ -27,10 +30,19 @@ public class Stream implements Serializable {
     private String contentType;
     private String genre;
 
+    /**
+     * Constructs a new {@link Stream} object
+     */
     public Stream() {
         clear();
     }
 
+    /**
+     * Gets a {@link String} representatio of this {@link Stream}
+     *
+     * @return the {@link String} representation
+     */
+    @Override
     public String toString() {
         return ("Stream(title=" + title +
                 ", desc=" + description +
@@ -44,6 +56,10 @@ public class Stream implements Serializable {
                 ", genre=" + genre + ")");
     }
 
+    /**
+     * Clears this {@link Stream}<br/>
+     * Resets all metadata to <code>null</code> or <code>-1</code>
+     */
     public void clear() {
         title = null;
         description = null;
@@ -57,6 +73,11 @@ public class Stream implements Serializable {
         genre = null;
     }
 
+    /**
+     * Merges 2 {@link Stream} metadata into one
+     *
+     * @param another the other {@link Stream} to merge with
+     */
     public void merge(Stream another) {
         if (title == null) {
             title = another.getTitle();
@@ -90,82 +111,190 @@ public class Stream implements Serializable {
         }
     }
 
+    /**
+     * Gets the title of this {@link Stream}
+     *
+     * @return the title
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * Sets the title of this {@link Stream}
+     *
+     * @param title the new title
+     */
     public void setTitle(String title) {
         this.title = title;
     }
 
+
+    /**
+     * Gets the description of this {@link Stream}
+     *
+     * @return the description
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Sets the description of this {@link Stream}
+     *
+     * @param description the new description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+
+    /**
+     * Gets the {@link URI} of this {@link Stream}
+     *
+     * @return the {@link URI}
+     */
     public URI getUri() {
         return uri;
     }
 
+    /**
+     * Sets the {@link URI} of this {@link Stream}
+     *
+     * @param uri the new {@link URI}
+     */
     public void setUri(URI uri) {
         this.uri = uri;
     }
 
+
+    /**
+     * Gets the current listener count of this {@link Stream}
+     *
+     * @return the current listener count
+     */
     public int getCurrentListenerCount() {
         return currentListenerCount;
     }
 
+    /**
+     * Sets the current listener count of this {@link Stream}
+     *
+     * @param currentListenerCount the new current listener count
+     */
     public void setCurrentListenerCount(int currentListenerCount) {
         this.currentListenerCount = currentListenerCount;
     }
 
+
+    /**
+     * Gets the maximum listener count of this {@link Stream}
+     *
+     * @return the maximum listener count
+     */
     public int getMaxListenerCount() {
         return maxListenerCount;
     }
 
+    /**
+     * Sets the maximum listener count of this {@link Stream}
+     *
+     * @param maxListenerCount the new maximum listener count
+     */
     public void setMaxListenerCount(int maxListenerCount) {
         this.maxListenerCount = maxListenerCount;
     }
 
+
+    /**
+     * Gets the peak listener count of this {@link Stream}
+     *
+     * @return the peak listener count
+     */
     public int getPeakListenerCount() {
         return peakListenerCount;
     }
 
+    /**
+     * Sets the peak listener count of this {@link Stream}
+     *
+     * @param peakListenerCount the new peak listener count
+     */
     public void setPeakListenerCount(int peakListenerCount) {
         this.peakListenerCount = peakListenerCount;
     }
 
+
+    /**
+     * Gets the bit rate of this {@link Stream}
+     *
+     * @return the bit rate
+     */
     public String getBitRate() {
         return bitRate;
     }
 
+    /**
+     * Sets the bit rate of this {@link Stream}
+     *
+     * @param bitRate the new bit rate
+     */
     public void setBitRate(String bitRate) {
         this.bitRate = bitRate;
     }
 
+
+    /**
+     * Gets the current sont of this {@link Stream}
+     *
+     * @return the current song
+     */
     public String getCurrentSong() {
         return currentSong;
     }
 
+    /**
+     * Sets the current song of this {@link Stream}
+     *
+     * @param currentSong the new current song
+     */
     public void setCurrentSong(String currentSong) {
         this.currentSong = currentSong;
     }
 
+
+    /**
+     * Gets the content type of this {@link Stream}
+     *
+     * @return the content type
+     */
     public String getContentType() {
         return contentType;
     }
 
+    /**
+     * Sets the content type of this {@link Stream}
+     *
+     * @param contentType the new content type
+     */
     public void setContentType(String contentType) {
         this.contentType = contentType;
     }
 
+    /**
+     * Gets the title of this {@link Stream}
+     *
+     * @return the title
+     */
     public String getGenre() {
         return genre;
     }
 
+    /**
+     * Sets the genre of this {@link Stream}
+     *
+     * @param genre the new genre
+     */
     public void setGenre(String genre) {
         this.genre = genre;
     }
