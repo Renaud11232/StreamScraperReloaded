@@ -2,7 +2,7 @@
 
 StreamScraperReloaded is a java library that can be used to harvest streaming metadata (current song title, genre, current listener count, etc.) from SHOUTcast/IceCast servers.
 This project is a continuation of Kohei TAKETA's streamscraper project. But as it is not maintained anymore. It had some compatibility issues with the latest IceCast and ShoutCast servers.
-[Original project]( https://code.google.com/archive/p/streamscraper/)
+[Original project](https://code.google.com/archive/p/streamscraper/)
 
 *StreamScraperReloaded Goals*
   * Provide simple methods and classes to harvest streaming metadata
@@ -31,7 +31,8 @@ public class Harvester {
   * Will come later
   
 *License*
-StreamScraperReloaded is released under the [MIT]:(https://opensource.org/licenses/MIT)
+StreamScraperReloaded is released under the
+[MIT]:(https://opensource.org/licenses/MIT)
 ```
 Copyright (c) 2016 R. Gaspard
 
