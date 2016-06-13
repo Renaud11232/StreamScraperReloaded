@@ -4,10 +4,10 @@ StreamScraperReloaded is a java library that can be used to harvest streaming me
 This project is a continuation of Kohei TAKETA's streamscraper project. But as it is not maintained anymore. It had some compatibility issues with the latest IceCast and ShoutCast servers.
 [Original project]( https://code.google.com/archive/p/streamscraper/)
 
-##*StreamScraperReloaded Goals*
+#*StreamScraperReloaded Goals*
   * Provide simple methods and classes to harvest streaming metadata
   
-##*How to use*
+#*How to use*
 ```
 import be.renaud11232.streamscraperreloaded.Scraper;
 import be.renaud11232.streamscraperreloaded.Stream;
@@ -27,10 +27,10 @@ public class Harvester {
 }
 ```
 
-##*API Documentation*
+#*API Documentation*
   * Will come later
   
-##*License*
+#*License*
 ```
 Copyright (c) 2016 R. Gaspard
 
