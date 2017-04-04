@@ -20,6 +20,7 @@ import java.util.List;
 public interface Scraper {
     /**
      * Scrapes a stream located at a given {@link URI}
+     *
      * @param uri the {@link URI}
      * @return a list containing all found streams a the given {@link URI}
      * @throws ScrapeException if the given {@link URI} could not be scraped

@@ -11,41 +11,42 @@
 package be.renaud11232.streamscraperreloaded;
 
 /**
- * Defines an exception thrown while using StreamScraperReloaded
+ * A {@link FetchException} is thrown when something unexpected happened while fetching
  */
-public class StreamScraperException extends Exception {
+public class FetchException extends StreamScraperException {
+
     /**
-     * Constructs a new {@link StreamScraperException}
+     * Constructs a new {@link FetchException}
      */
-    public StreamScraperException() {
+    public FetchException() {
         super();
     }
 
     /**
-     * Constructs a new {@link StreamScraperException} with a given message
+     * Constructs a new {@link FetchException} with a given message
      *
      * @param message the message
      */
-    public StreamScraperException(String message) {
+    public FetchException(String message) {
         super(message);
     }
 
     /**
-     * Constructs a new {@link StreamScraperException} with a given message and cause
+     * Constructs a new {@link FetchException} with a given message and cause
      *
      * @param message the message
-     * @param  cause the cause
+     * @param cause   the cause
      */
-    public StreamScraperException(String message, Throwable cause) {
+    public FetchException(String message, Throwable cause) {
         super(message, cause);
     }
 
     /**
-     * Constructs a new {@link StreamScraperException} with a given case
+     * Constructs a new {@link FetchException} with a given cause
      *
      * @param cause the cause
      */
-    public StreamScraperException(Throwable cause) {
+    public FetchException(Throwable cause) {
         super(cause);
     }
 }

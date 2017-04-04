@@ -10,21 +10,42 @@
 
 package be.renaud11232.streamscraperreloaded;
 
-import org.jsoup.nodes.Document;
-
-import java.net.URI;
-import java.util.List;
-
 /**
- * Interface defining all methods used to parse a document
+ * A {@link ParseException} is thrown when something unexpected happened when parsing
  */
-public interface Parser {
+public class ParseException extends StreamScraperException {
     /**
-     * Parses the given {@link Document} located at a given {@link URI} into Streams
-     * @param uri the {@link URI} the location
-     * @param src the {@link Document}
-     * @return a {@link List} containing all parsed Streams
-     * @throws ParseException if the {@link Document} could not be parsed
+     * Constructs a new {@link ParseException}
      */
-    public List<Stream> parse(URI uri, Document src) throws ParseException;
+    public ParseException() {
+        super();
+    }
+
+    /**
+     * Constructs a new {@link ParseException} with a given message
+     *
+     * @param message the message
+     */
+    public ParseException(String message) {
+        super(message);
+    }
+
+    /**
+     * Constructs a new {@link ParseException} with a given message and cause
+     *
+     * @param message the message
+     * @param cause   the cause
+     */
+    public ParseException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    /**
+     * Constructs a new {@link ParseException} with a given cause
+     *
+     * @param cause the cause
+     */
+    public ParseException(Throwable cause) {
+        super(cause);
+    }
 }
