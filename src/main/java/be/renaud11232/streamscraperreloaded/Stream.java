@@ -57,7 +57,7 @@ public class Stream implements Serializable {
     }
 
     /**
-     * Clears this {@link Stream}<br/>
+     * Clears this {@link Stream}<br>
      * Resets all metadata to <code>null</code> or <code>-1</code>
      */
     public void clear() {
